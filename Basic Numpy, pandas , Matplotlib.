@@ -1,0 +1,72 @@
+//Numpy
+
+import numpy as np
+arr=np.array([1,2,3,4])
+print(arr)
+
+#data_types
+x=np.array([1,2,3,4],dtype=float)
+print("np.array([1,2,3,4],dtype=float) : ",x)
+
+#shape of the array
+s=np.array([3,2,14,5])
+print("s.shape :",s.shape)
+
+#sum of two arrays
+arr1=np.array([1,2,5,3,7])
+print("arr1 :",arr1)
+print("arr1.shape :",arr1.shape)
+print("arr1.size :",arr1.size)
+arr2=np.array([2,1,4,6,8])
+print("arr2 :",arr2)
+
+print("arr1+arr2 : ",arr1+arr2)
+
+//Pandas
+
+# Creating empty series 
+ser = pd.Series() 
+print("Pandas Series: ", ser) 
+
+# simple array 
+data = np.array(['g', 'e', 'e', 'k', 's']) 
+  
+ser = pd.Series(data) 
+print("Pandas Series:\n", ser)
+
+# Creating a DataFrame Using the Pandas Library
+  
+# Calling DataFrame constructor 
+df = pd.DataFrame() 
+print(df)
+
+# list of strings 
+lst = ['Geeks', 'For', 'Geeks', 'is', 'portal', 'for', 'Geeks'] 
+  
+# Calling DataFrame constructor on list 
+df = pd.DataFrame(lst) 
+print(df)
+
+//Matplotlib
+
+# importing the required module  
+import matplotlib.pyplot as plt  
+    
+# x axis values  
+x = [1,2,3]  
+# corresponding y axis values  
+y = [2,4,1]  
+    
+# plotting the points   
+plt.plot(x, y)  
+    
+# naming the x axis  
+plt.xlabel('x - axis')  
+# naming the y axis  
+plt.ylabel('y - axis')  
+    
+# giving a title to my graph  
+plt.title('My first graph!')  
+    
+# function to show the plot  
+plt.show()  
