@@ -1,0 +1,36 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import LabelEncoder
+
+
+data = pd.read_csv('iris.csv')
+data
+
+x = data.iloc[:,:-1].values
+y = data.iloc[:,-1].values
+
+Label_encoder = LabelEncoder()
+y = Label_encoder.fit_transform(y)
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2 ,random_state=0)
+
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(x_train, y_train)
+
+y_pred = knn.predict(x_test)
+
+SepalLengthCm = float(input("enter sepal length:"))
+SepalWidthCm = float(input("enter sepal width:"))
+PetalLengthCm = float(input("enter petal length:"))
+PetalWidthCm = float(input("enter petal width: "))
+
+new_data = [[SepalLengthCm,SepalWidthCm,PetalLengthCm,PetalWidthCm]]
+new_pred = knn.predict(new_data)
+print("predicted class for new data(binary form): ",new_pred)
+print("Predicted Species for new data: ",Label_encoder.inverse_transform(new_pred))
+
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
